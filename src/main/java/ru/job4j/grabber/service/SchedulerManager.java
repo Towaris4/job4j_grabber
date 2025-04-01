@@ -10,7 +10,7 @@ import static org.quartz.SimpleScheduleBuilder.simpleSchedule;
 import static org.quartz.TriggerBuilder.newTrigger;
 
 public class SchedulerManager {
-    private static final Logger log = Logger.getLogger(SchedulerManager.class);
+    private static final Logger LOG = Logger.getLogger(SchedulerManager.class);
     private Scheduler scheduler;
 
     public void init() {
@@ -18,7 +18,7 @@ public class SchedulerManager {
             scheduler = StdSchedulerFactory.getDefaultScheduler();
             scheduler.start();
         } catch (SchedulerException se) {
-            log.error("When init scheduler", se);
+            LOG.error("When init scheduler", se);
         }
     }
 
@@ -40,7 +40,7 @@ public class SchedulerManager {
 
             scheduler.scheduleJob(job, trigger);
         } catch (SchedulerException se) {
-            log.error("When init job", se);
+            LOG.error("When init job", se);
         }
     }
 
@@ -49,7 +49,7 @@ public class SchedulerManager {
             try {
                 scheduler.shutdown();
             } catch (SchedulerException e) {
-                log.error("When shutdown scheduler", e);
+                LOG.error("When shutdown scheduler", e);
             }
         }
     }
