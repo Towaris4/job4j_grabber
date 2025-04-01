@@ -12,8 +12,6 @@ public class AlertRabbit {
         try {
             Scheduler scheduler = StdSchedulerFactory.getDefaultScheduler();
             scheduler.start();
-
-            // Создаем JobDetail с параметрами
             JobDetail job = newJob(Rabbit.class)
                     .usingJobData("param1", "Hello, Rabbit!")
                     .usingJobData("param2", 42)
@@ -37,7 +35,6 @@ public class AlertRabbit {
     public static class Rabbit implements Job {
         @Override
         public void execute(JobExecutionContext context) {
-            // Получаем параметры из JobDataMap
             String param1 = context.getJobDetail().getJobDataMap().getString("param1");
             int param2 = context.getJobDetail().getJobDataMap().getInt("param2");
 
