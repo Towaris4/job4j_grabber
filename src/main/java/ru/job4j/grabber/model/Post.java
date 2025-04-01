@@ -43,11 +43,11 @@ public class Post {
         this.time = time;
     }
 
-    long id;
-    String title;
-    String link;
-    String description;
-    long time;
+    private long id;
+    private String title;
+    private String link;
+    private String description;
+    private long time;
 
     @Override
     public boolean equals(Object o) {
