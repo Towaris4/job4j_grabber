@@ -9,7 +9,7 @@ import ru.job4j.grabber.stores.MemStore;
 public class Main {
     public static void main(String[] args) {
         var config = new Config();
-        config.load("application.properties");
+        config.load("src/main/resources/application.properties");
         var store = new MemStore();
         var post = new Post();
         post.setTitle("Super Java Job");
